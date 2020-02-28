@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Move : MonoBehaviour
+public class PlayerMover : MonoBehaviour
 {
-    [SerializeField]
-    private float _speed;
+    [SerializeField] private float _speed;
+    [SerializeField] private float _jumpForce;
 
     private Animator _animator;
+    private Rigidbody2D _rigidbody;
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -29,6 +31,11 @@ public class Move : MonoBehaviour
         else
         {
             _animator.SetInteger("TransitionCheck", 1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _rigidbody.AddForce(Vector2.up * _jumpForce);
         }
     }
 }

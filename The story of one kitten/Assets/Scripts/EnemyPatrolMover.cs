@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PatrolMove : MonoBehaviour
+public class EnemyPatrolMover : MonoBehaviour
 {
-    [SerializeField]
-    private Transform _path;
-    [SerializeField]
-    private float _speed;
+    [SerializeField] private Transform _path;
+    [SerializeField] private float _speed;
 
     private Transform[] _points;
     private int _currentPoint;

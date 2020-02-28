@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class SpawnHealth : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject coins;
+    [SerializeField] private GameObject coins;
 
     private float randomX;
     private Vector2 whereToSpawn;
 
-     void OnTriggerEnter2D(Collider2D shit)
+     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (shit.gameObject.tag == "Coin")
+        if (collider.gameObject.tag == "Coin")
         {
-            StartCoroutine(RespawnCoin(shit.gameObject));
+            StartCoroutine(RespawnCoin(collider.gameObject));
         }
     }
     private IEnumerator RespawnCoin(GameObject obj)
